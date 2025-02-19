@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendation System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 text-primary">Product Recommendation System</h1>
+            <p class="lead text-muted">Enter customer details to get personalized recommendations.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg p-4">
+                    <div class="mb-4">
+                        <label for="customer-id" class="form-label">Customer ID</label>
+                        <input type="text" id="customer-id" class="form-control" placeholder="e.g. C12345">
+                    </div>
+                    <div class="mb-4">
+                        <label for="num-recommendations" class="form-label">Number of Recommendations</label>
+                        <input type="number" id="num-recommendations" class="form-control" value="5" min="1" max="10">
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-primary" onclick="getRecommendations()">Get Recommendations</button>
+                        <button class="btn btn-secondary" onclick="trainModel()">Train Model</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div id="recommendations-section" class="mt-5">
+            <h3 class="mb-3">Recommendations</h3>
+            <div id="recommendations-list" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <!-- Recommendations will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <div id="message" class="mt-4"></div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

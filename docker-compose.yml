@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: samiksha
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: ecommerce_data
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - my_network
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - my_network
+    volumes:
+      - mongo_data:/data/db
+
+  data_ingestion:
+    build: .
+    container_name: flask_app
+    restart: on-failure
+    ports:
+      - "5001:5001"  # Expose Flask app to localhost
+    depends_on:
+      - postgres
+      - mongodb
+    environment:
+      DATABASE_URL: "postgresql+psycopg2://samiksha:password123@postgres:5432/ecommerce_data"
+      MONGO_URI: "mongodb://mongodb:27017"
+    networks:
+      - my_network
+
+volumes:
+  postgres_data:
+  mongo_data:
+
+networks:
+  my_network:

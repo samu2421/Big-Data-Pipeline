@@ -1,0 +1,52 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+.recommendation-card {
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.recommendation-card img {
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.recommendation-card-body {
+  padding: 15px;
+}
+
+.recommendation-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.recommendation-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+.recommendation-score {
+  font-size: 1rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
+#message {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #28a745;
+}
